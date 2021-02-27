@@ -22,5 +22,13 @@ public class MainActivity extends AppCompatActivity {
                 answerTextView.setVisibility(View.VISIBLE);
             }
         });
+
+        answerTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answerTextView.setVisibility(View.INVISIBLE);
+                questionTextView.setVisibility(View.VISIBLE);
+            }
+        });
     }
 }
