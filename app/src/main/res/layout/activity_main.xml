@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9F3BD3BC"
     tools:context=".MainActivity">
 
     <TextView
@@ -27,7 +28,83 @@
         android:textSize="40sp"
         android:gravity="center"
         android:visibility="invisible"
-        android:textColor="#eb3480"
-        android:background="#3437eb" />
+        android:textColor="@color/white"
+        android:background="@drawable/flashcard_answer_background" />
+    <TextView
+        android:id="@+id/Answer1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="China"
+        android:textColor="#8A329DCF"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        android:background="#AEFFF29A"
+        android:layout_margin="25dp"
+        android:layout_below="@id/flashcard_question"/>
 
+    <TextView
+        android:id="@+id/Answer2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/Answer1"
+        android:layout_margin="20dp"
+        android:layout_marginTop="146dp"
+        android:layout_marginBottom="25dp"
+        android:background="#AEFFF29A"
+        android:gravity="center"
+        android:text="Brazil"
+        android:visibility="visible"
+        android:textColor="#8A329DCF"
+        android:textSize="23sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/Answer3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="Russia"
+        android:visibility="visible"
+        android:textColor="#8A329DCF"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:background="#AEFFF29A"
+        android:layout_margin="20dp"
+        android:layout_below="@id/Answer2"/>
+    <TextView
+    android:id="@+id/reset"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_below="@+id/Answer3"/>
+
+    <ImageView
+        android:id="@+id/invisible_button"
+        android:src="@drawable/invisible_icon_foreground"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"/>
+    
+    <ImageView
+        android:id="@+id/visible_button"
+        android:src="@drawable/visible_icon_foreground"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"/>
+
+<ImageView
+    android:id="@+id/newpage"
+    android:src="@drawable/newpage_icon_foreground"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:layout_width="80dp"
+    android:layout_margin="20dp"
+    android:layout_height="70dp"
 </android.widget.RelativeLayout>
