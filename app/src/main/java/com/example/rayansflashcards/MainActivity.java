@@ -1,5 +1,6 @@
 package com.example.rayansflashcards;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         TextView reset = findViewById(R.id.reset);
         ImageView invisible = findViewById(R.id.invisible_button);
         ImageView visible = findViewById(R.id.visible_button);
+        ImageView newPageIcon = findViewById(R.id.newpage);
 
 
 
@@ -101,5 +103,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        newPageIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NewPage.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
     }
 }
