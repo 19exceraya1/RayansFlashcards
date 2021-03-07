@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         }
         TextView questionTextView = findViewById(R.id.flashcard_question);
         TextView answerTextView = findViewById(R.id.flashcard_answer);
+        ImageView newPageIcon = findViewById(R.id.newpage);
 
         questionTextView.setText(userQuestion);
         answerTextView.setText(userAnswer);
@@ -144,6 +145,14 @@ public class MainActivity extends AppCompatActivity {
                 questionTextView.setVisibility(View.VISIBLE);
             }
 
+        });
+
+        newPageIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NewPage.class);
+                MainActivity.this.startActivityForResult(intent, 100);
+            }
         });
     }
 }

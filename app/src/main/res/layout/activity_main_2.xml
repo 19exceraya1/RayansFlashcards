@@ -19,7 +19,7 @@
         android:visibility="visible"
         android:layout_margin="10dp"
         android:elevation="40dp"
-        android:background="@drawable/solid_color_shape_2"/>
+        android:background="@drawable/flashcard_answer_background_2"/>
     <TextView
         android:id="@+id/flashcard_answer"
         android:layout_width="match_parent"
@@ -28,8 +28,8 @@
         android:textSize="40sp"
         android:gravity="center"
         android:visibility="invisible"
-        android:textColor="@color/white"
-        android:background="@drawable/flashcard_answer_background_2" />
+        android:textColor="@color/black"
+        android:background="@drawable/solid_color_shape_2" />
 
     <ImageView
         android:id="@+id/newpage"
