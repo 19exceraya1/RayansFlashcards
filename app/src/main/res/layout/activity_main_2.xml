@@ -13,13 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:text="What is the most populated country in the world?"
-        android:textColor="#DAD4D4"
+        android:textColor="@color/black"
         android:textSize="40sp"
         android:gravity="center"
         android:visibility="visible"
         android:layout_margin="10dp"
         android:elevation="40dp"
-        android:background="@drawable/solid_color_shape"/>
+        android:background="@drawable/solid_color_shape_2"/>
     <TextView
         android:id="@+id/flashcard_answer"
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         android:gravity="center"
         android:visibility="invisible"
         android:textColor="@color/white"
-        android:background="@drawable/flashcard_answer_background" />
+        android:background="@drawable/flashcard_answer_background_2" />
 
     <ImageView
         android:id="@+id/newpage"
