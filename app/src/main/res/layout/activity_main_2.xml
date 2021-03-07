@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9F3BD3BC"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/flashcard_question"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="What is the most populated country in the world?"
+        android:textColor="#DAD4D4"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        android:elevation="40dp"
+        android:background="@drawable/solid_color_shape"/>
+    <TextView
+        android:id="@+id/flashcard_answer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="China"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:textColor="@color/white"
+        android:background="@drawable/flashcard_answer_background" />
+
+    <ImageView
+        android:id="@+id/newpage"
+        android:src="@drawable/newpage_icon_foreground"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="80dp"
+        android:layout_margin="20dp"
+        android:layout_height="70dp"/>
+</android.widget.RelativeLayout>
