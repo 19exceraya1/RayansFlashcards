@@ -128,5 +128,22 @@ public class MainActivity extends AppCompatActivity {
 
         questionTextView.setText(userQuestion);
         answerTextView.setText(userAnswer);
+
+        questionTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                questionTextView.setVisibility(View.INVISIBLE);
+                answerTextView.setVisibility(View.VISIBLE);
+            }
+        });
+
+        answerTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answerTextView.setVisibility(View.INVISIBLE);
+                questionTextView.setVisibility(View.VISIBLE);
+            }
+
+        });
     }
 }
