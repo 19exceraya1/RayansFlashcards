@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView invisible = findViewById(R.id.invisible_button);
         ImageView visible = findViewById(R.id.visible_button);
         ImageView newPageIcon = findViewById(R.id.newpage);
+        ImageView editIcon= findViewById(R.id.edit);
 
 
 
@@ -106,7 +107,17 @@ public class MainActivity extends AppCompatActivity {
         newPageIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewPage.class);
+                Intent intent = new Intent(MainActivity.this, AddCard.class);
+                MainActivity.this.startActivityForResult(intent, 100);
+            }
+        });
+
+        editIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddCard.class);
+                intent.putExtra("userQuestion", questionTextView.getText());
+                intent.putExtra("userAnswer", answerTextView.getText());
                 MainActivity.this.startActivityForResult(intent, 100);
             }
         });
@@ -150,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         newPageIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewPage.class);
+                Intent intent = new Intent(MainActivity.this, AddCard.class);
                 MainActivity.this.startActivityForResult(intent, 100);
             }
         });
