@@ -21,14 +21,28 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:hint="Enter Question Here"
-        android:layout_margin="25dp"/>
+        android:layout_margin="30dp"/>
     <EditText
         android:id="@+id/answerInput"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/questionInput"
         android:hint="Enter Answer Here"
-        android:layout_margin="20dp"/>
+        android:layout_margin="30dp"/>
+    <EditText
+        android:id="@+id/wrongOption1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/answerInput"
+        android:hint="Enter Answer Here"
+        android:layout_margin="30dp"/>
+    <EditText
+        android:id="@+id/wrongOption2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/wrongOption1"
+        android:hint="Enter Answer Here"
+        android:layout_margin="30dp"/>
     <ImageView
         android:id="@+id/save_icon"
         android:src="@drawable/save_icon_foreground"
