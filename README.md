@@ -26,7 +26,7 @@
 Flashcard application that can take in user inputted questions and answers and display them as flashcards
 
 ### App Walk-though
-<img src ="https://github.com/19exceraya1/RayansFlashcards/blob/master/Lab02%20recording.gif" width=200><br>
+<img src =https://github.com/19exceraya1/RayansFlashcards/blob/master/Lab02%2B%20recording.gif><br>
 
 
 ## Required
