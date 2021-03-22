@@ -10,12 +10,25 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.yourpackage.packagenamehere.Flashcard;
+import com.yourpackage.packagenamehere.FlashcardDatabase;
+
+import java.util.List;
+import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity {
+
+    FlashcardDatabase flashcardDatabase;
+    List<Flashcard> allFlashcards;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        flashcardDatabase = new FlashcardDatabase(getApplicationContext());
+        allFlashcards = flashcardDatabase.getAllCards();
 
         TextView questionTextView = findViewById(R.id.flashcard_question);
         TextView answerTextView = findViewById(R.id.flashcard_answer);
@@ -27,8 +40,18 @@ public class MainActivity extends AppCompatActivity {
         ImageView visible = findViewById(R.id.visible_button);
         ImageView newPageIcon = findViewById(R.id.newpage);
         ImageView editIcon= findViewById(R.id.edit);
+        Flashcard currentCard;
 
+        ListIterator<Flashcard> flashcardListIterator = allFlashcards.listIterator();
 
+        if(flashcardListIterator.hasNext()){
+            currentCard = flashcardListIterator.next();
+            questionTextView.setText(currentCard.getQuestion());
+            answerTextView.setText(currentCard.getAnswer());
+            answer1.setText(currentCard.getAnswer());
+            answer2.setText(currentCard.getWrongAnswer1());
+            answer3.setText(currentCard.getWrongAnswer2());
+        }
 
         questionTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,10 +160,19 @@ public class MainActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
         setContentView(R.layout.activity_main);
-        String userQuestion;
-        String userAnswer;
-        String wrongOption1;
-        String wrongOption2;
+
+        String userQuestion, userAnswer, wrongOption1, wrongOption2;
+
+        TextView questionTextView = findViewById(R.id.flashcard_question);
+        TextView answerTextView = findViewById(R.id.flashcard_answer);
+        TextView answer1 = findViewById(R.id.Answer1);
+        TextView answer2 = findViewById(R.id.Answer2);
+        TextView answer3 = findViewById(R.id.Answer3);
+        TextView reset = findViewById(R.id.reset);
+        ImageView invisible = findViewById(R.id.invisible_button);
+        ImageView visible = findViewById(R.id.visible_button);
+        ImageView newPageIcon = findViewById(R.id.newpage);
+        ImageView editIcon= findViewById(R.id.edit);
 
         if (requestCode == 100 && resultCode == RESULT_OK) { // this 100 needs to match the 100 we used when we called startActivityForResult!
             userQuestion = data.getExtras().getString("returningUserQuestion");
@@ -154,17 +186,9 @@ public class MainActivity extends AppCompatActivity {
             wrongOption2 = "";
         }
 
-        TextView questionTextView = findViewById(R.id.flashcard_question);
-        TextView answerTextView = findViewById(R.id.flashcard_answer);
-        TextView answer1 = findViewById(R.id.Answer1);
-        TextView answer2 = findViewById(R.id.Answer2);
-        TextView answer3 = findViewById(R.id.Answer3);
-        TextView reset = findViewById(R.id.reset);
-        ImageView invisible = findViewById(R.id.invisible_button);
-        ImageView visible = findViewById(R.id.visible_button);
-        ImageView newPageIcon = findViewById(R.id.newpage);
-        ImageView editIcon= findViewById(R.id.edit);
 
+        flashcardDatabase.insertCard(new Flashcard(userQuestion, userAnswer, wrongOption1, wrongOption2));
+        allFlashcards = flashcardDatabase.getAllCards();
         questionTextView.setText(userQuestion);
         answerTextView.setText(userAnswer);
         answer1.setText(wrongOption1);

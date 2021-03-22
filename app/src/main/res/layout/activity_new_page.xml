@@ -34,14 +34,14 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/answerInput"
-        android:hint="Enter Answer Here"
+        android:hint="Enter Wrong Option Here"
         android:layout_margin="30dp"/>
     <EditText
         android:id="@+id/wrongOption2"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/wrongOption1"
-        android:hint="Enter Answer Here"
+        android:hint="Enter Wrong Option Here"
         android:layout_margin="30dp"/>
     <ImageView
         android:id="@+id/save_icon"

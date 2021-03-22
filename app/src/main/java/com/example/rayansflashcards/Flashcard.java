@@ -14,13 +14,13 @@ import java.util.UUID;
 public class Flashcard {
 
     @Ignore
-    Flashcard(@NonNull String question, @NonNull String answer) {
+    public Flashcard(@NonNull String question, @NonNull String answer) {
         this.uuid = UUID.randomUUID().toString();
         this.question = question;
         this.answer = answer;
     }
 
-    Flashcard(@NonNull String question, @NonNull String answer, @Nullable String wrongAnswer1,@Nullable  String wrongAnswer2) {
+    public Flashcard(@NonNull String question, @NonNull String answer, @Nullable String wrongAnswer1, @Nullable String wrongAnswer2) {
         this.uuid = UUID.randomUUID().toString();
         this.question = question;
         this.answer = answer;

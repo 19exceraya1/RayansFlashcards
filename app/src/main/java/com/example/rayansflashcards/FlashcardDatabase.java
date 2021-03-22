@@ -11,7 +11,7 @@ import java.util.List;
 public class FlashcardDatabase {
     private final AppDatabase db;
 
-    FlashcardDatabase(Context context) {
+    public FlashcardDatabase(Context context) {
         db = Room.databaseBuilder(context.getApplicationContext(),
                 AppDatabase.class, "flashcard-database")
                 .allowMainThreadQueries()
