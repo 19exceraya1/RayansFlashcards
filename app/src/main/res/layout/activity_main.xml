@@ -73,11 +73,13 @@
         android:background="#AEFFF29A"
         android:layout_margin="20dp"
         android:layout_below="@id/Answer2"/>
+
     <TextView
-    android:id="@+id/reset"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_below="@+id/Answer3"/>
+        android:id="@+id/reset"
+        android:layout_width="299dp"
+        android:layout_height="116dp"
+        android:layout_below="@+id/Answer3"
+        android:layout_marginTop="4dp" />
 
     <ImageView
         android:id="@+id/invisible_button"
@@ -107,6 +109,15 @@
     android:layout_width="80dp"
     android:layout_margin="20dp"
     android:layout_height="70dp"/>
+
+    <ImageView
+        android:id="@+id/next_icon"
+        android:src="@drawable/next_icon_foreground"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/newpage"
+        android:layout_width="80dp"
+        android:layout_margin="15dp"
+        android:layout_height="70dp"/>
 
     <ImageView
         android:id="@+id/edit"

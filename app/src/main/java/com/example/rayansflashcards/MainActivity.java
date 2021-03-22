@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
     FlashcardDatabase flashcardDatabase;
     List<Flashcard> allFlashcards;
+    Flashcard currentCard;
+
+    int count = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         flashcardDatabase = new FlashcardDatabase(getApplicationContext());
         allFlashcards = flashcardDatabase.getAllCards();
-
+        ListIterator<Flashcard> flashcardListIterator = allFlashcards.listIterator();
         TextView questionTextView = findViewById(R.id.flashcard_question);
         TextView answerTextView = findViewById(R.id.flashcard_answer);
         TextView answer1 = findViewById(R.id.Answer1);
@@ -38,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
         ImageView visible = findViewById(R.id.visible_button);
         ImageView newPageIcon = findViewById(R.id.newpage);
         ImageView editIcon= findViewById(R.id.edit);
-        Flashcard currentCard;
 
-        ListIterator<Flashcard> flashcardListIterator = allFlashcards.listIterator();
+
+
 
         if(flashcardListIterator.hasNext()){
             currentCard = flashcardListIterator.next();
@@ -171,6 +175,11 @@ public class MainActivity extends AppCompatActivity {
         ImageView visible = findViewById(R.id.visible_button);
         ImageView newPageIcon = findViewById(R.id.newpage);
         ImageView editIcon= findViewById(R.id.edit);
+        ImageView nextIcon = findViewById(R.id.next_icon);
+
+        ListIterator<Flashcard> flashcardListIterator = allFlashcards.listIterator();
+
+
 
         if (requestCode == 100 && resultCode == RESULT_OK) { // this 100 needs to match the 100 we used when we called startActivityForResult!
             userQuestion = data.getExtras().getString("returningUserQuestion");
@@ -192,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
         answer1.setText(wrongOption1);
         answer2.setText(wrongOption2);
         answer3.setText(userAnswer);
+
 
 
         questionTextView.setOnClickListener(new View.OnClickListener() {
@@ -278,6 +288,28 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivityForResult(intent, 100);
             }
         });
+
+        nextIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (flashcardListIterator.hasNext()) {
+                    currentCard = flashcardListIterator.next();
+                    questionTextView.setText(currentCard.getQuestion());
+                    answerTextView.setText(currentCard.getAnswer());
+                    answer1.setText(currentCard.getAnswer());
+                    answer2.setText(currentCard.getWrongAnswer1());
+                    answer3.setText(currentCard.getWrongAnswer2());
+                }else if(!allFlashcards.isEmpty()){
+                    ListIterator<Flashcard> flashcardListIterator = allFlashcards.listIterator();
+                    currentCard = flashcardListIterator.next();
+                    questionTextView.setText(currentCard.getQuestion());
+                    answerTextView.setText(currentCard.getAnswer());
+                    answer1.setText(currentCard.getAnswer());
+                    answer2.setText(currentCard.getWrongAnswer1());
+                    answer3.setText(currentCard.getWrongAnswer2());
+                }
+            }
+            });
 
         newPageIcon.setOnClickListener(new View.OnClickListener(){
                 @Override
