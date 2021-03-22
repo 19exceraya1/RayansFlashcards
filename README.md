@@ -26,7 +26,7 @@
 Flashcard application that can take in user inputted questions and answers and display them as flashcards
 
 ### App Walk-though
-<img src ="https://github.com/19exceraya1/RayansFlashcards/blob/master/Lab02%20recording.gif" width=200><br>
+<img src =https://github.com/19exceraya1/RayansFlashcards/blob/master/Lab02%2B%20recording.gif><br>
 
 
 ## Required
@@ -37,8 +37,8 @@ Flashcard application that can take in user inputted questions and answers and d
 - [X] Push your progress to GitHub!
 
 ## Optional
-- [x] User can edit a card
+- [X] User can edit a card
 - [] An error message is shown if the user doesn't enter both a Question and an Answer
-- [x] A notification is shown if the card was created successfully
-- [x] User can also enter multiple choice answers when creating a card
-- [x] App is further styled and customized!
+- [X] A notification is shown if the card was created successfully
+- [X] User can also enter multiple choice answers when creating a card
+- [X] App is further styled and customized!
