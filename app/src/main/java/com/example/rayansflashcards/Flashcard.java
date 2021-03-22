@@ -1,4 +1,4 @@
-package com.yourpackage.packagenamehere;
+package com.example.rayansflashcards;
 
 
 import androidx.annotation.NonNull;
@@ -14,13 +14,13 @@ import java.util.UUID;
 public class Flashcard {
 
     @Ignore
-    public Flashcard(@NonNull String question, @NonNull String answer) {
+    Flashcard(@NonNull String question, @NonNull String answer) {
         this.uuid = UUID.randomUUID().toString();
         this.question = question;
         this.answer = answer;
     }
 
-    public Flashcard(@NonNull String question, @NonNull String answer, @Nullable String wrongAnswer1, @Nullable String wrongAnswer2) {
+    Flashcard(@NonNull String question, @NonNull String answer, @Nullable String wrongAnswer1,@Nullable  String wrongAnswer2) {
         this.uuid = UUID.randomUUID().toString();
         this.question = question;
         this.answer = answer;

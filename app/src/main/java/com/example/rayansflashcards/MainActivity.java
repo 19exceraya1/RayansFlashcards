@@ -10,8 +10,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.yourpackage.packagenamehere.Flashcard;
-import com.yourpackage.packagenamehere.FlashcardDatabase;
 
 import java.util.List;
 import java.util.ListIterator;
