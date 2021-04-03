@@ -1,9 +1,13 @@
 package com.example.rayansflashcards;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,16 +62,29 @@ public class MainActivity extends AppCompatActivity {
         questionTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int cx = answerTextView.getWidth() / 2;
+                int cy = answerTextView.getHeight() / 2;
+                float finalRadius = (float) Math.hypot(cx, cy);
+                Animator anim = ViewAnimationUtils.createCircularReveal(answerTextView, cx, cy, 0f, finalRadius);
                 questionTextView.setVisibility(View.INVISIBLE);
                 answerTextView.setVisibility(View.VISIBLE);
+
+                anim.setDuration(250);
+                anim.start();
             }
         });
 
         answerTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int cx = answerTextView.getWidth() / 2;
+                int cy = answerTextView.getHeight() / 2;
+                float finalRadius = (float) Math.hypot(cx, cy);
+                Animator anim = ViewAnimationUtils.createCircularReveal(questionTextView, cx, cy, 0f, finalRadius);
                 answerTextView.setVisibility(View.INVISIBLE);
                 questionTextView.setVisibility(View.VISIBLE);
+                anim.setDuration(250);
+                anim.start();
             }
 
         });
@@ -136,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddCard.class);
                 MainActivity.this.startActivityForResult(intent, 100);
+                overridePendingTransition(R.anim.righin, R.anim.leftout);
             }
         });
 
@@ -207,16 +225,29 @@ public class MainActivity extends AppCompatActivity {
         questionTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int cx = answerTextView.getWidth() / 2;
+                int cy = answerTextView.getHeight() / 2;
+                float finalRadius = (float) Math.hypot(cx, cy);
+                Animator anim = ViewAnimationUtils.createCircularReveal(answerTextView, cx, cy, 0f, finalRadius);
                 questionTextView.setVisibility(View.INVISIBLE);
                 answerTextView.setVisibility(View.VISIBLE);
+
+                anim.setDuration(250);
+                anim.start();
             }
         });
 
         answerTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int cx = answerTextView.getWidth() / 2;
+                int cy = answerTextView.getHeight() / 2;
+                float finalRadius = (float) Math.hypot(cx, cy);
+                Animator anim = ViewAnimationUtils.createCircularReveal(questionTextView, cx, cy, 0f, finalRadius);
                 answerTextView.setVisibility(View.INVISIBLE);
                 questionTextView.setVisibility(View.VISIBLE);
+                anim.setDuration(250);
+                anim.start();
             }
 
         });
@@ -292,7 +323,34 @@ public class MainActivity extends AppCompatActivity {
         nextIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                final Animation leftOutAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.leftout);
+                final Animation rightInAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.righin);
+
+                leftOutAnim.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        // this method is called when the animation first starts
+                        findViewById(R.id.flashcard_question).startAnimation(leftOutAnim);
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        // this method is called when the animation is finished playing
+                        findViewById(R.id.flashcard_question).startAnimation(rightInAnim);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                        // we don't need to worry about this method
+                    }
+                });
+
                 if (flashcardListIterator.hasNext()) {
+                    findViewById(R.id.flashcard_question).startAnimation(rightInAnim);
+                    findViewById(R.id.Answer1).startAnimation(rightInAnim);
+                    findViewById(R.id.Answer2).startAnimation(rightInAnim);
+                    findViewById(R.id.Answer3).startAnimation(rightInAnim);
                     currentCard = flashcardListIterator.next();
                     questionTextView.setText(currentCard.getQuestion());
                     answerTextView.setText(currentCard.getAnswer());
@@ -302,6 +360,7 @@ public class MainActivity extends AppCompatActivity {
                 }else if(!allFlashcards.isEmpty()){
                     ListIterator<Flashcard> flashcardListIterator = allFlashcards.listIterator();
                     currentCard = flashcardListIterator.next();
+                    findViewById(R.id.flashcard_question).startAnimation(rightInAnim);
                     questionTextView.setText(currentCard.getQuestion());
                     answerTextView.setText(currentCard.getAnswer());
                     answer1.setText(currentCard.getAnswer());
